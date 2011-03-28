@@ -1,4 +1,4 @@
-%h1= @post.title
+%h1.title= @post.title
 .comment< 
   = "published #{Time.at(@post.timestamp).strftime("on %m-%d-%Y at %H:%M")}"
 #article

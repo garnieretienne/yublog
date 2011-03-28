@@ -14,19 +14,27 @@ h1 {
   color: #ADADAD;
   font-size: 1.2em;
   text-transform: uppercase;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 h2 {
   color: #4D7D30;
   font-size: 1.2em;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 h1 a {
   color: #ADADAD;
 }
 
+#header {
+  margin-bottom: 50px;
+  line-height: 25px;
+}
+
 #header h1 {
-  font-family: 'Cabin Sketch', arial, serif;
   font-size: 2.5em;
   margin: 0px;
   padding: 0px;
@@ -34,6 +42,12 @@ h1 a {
 
 #header h2 {
   margin: 0px;
+  padding: 0px;
+}
+
+.title {
+  line-height: 25px;
+  margin-bottom: 10px;
   padding: 0px;
 }
 
