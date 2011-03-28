@@ -1,0 +1,5 @@
+.rvmrc
+.bundle
+Gemfile.lock
+posts/*
+!posts/.gitme
