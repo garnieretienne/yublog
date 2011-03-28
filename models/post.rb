@@ -1,5 +1,6 @@
-require 'maruku'
+require 'rdiscount'
 require 'yaml'
+require 'albino'
 
 module Blog
   class Post
@@ -29,7 +30,8 @@ module Blog
     #   post = Blog::Post.new(source)
     #   html = post.to_html
     def to_html
-      @content.to_html
+      highlight_codes
+      RDiscount.new(@content, :autolink).to_html
     end
 
     # Alias method, to_s = to_html
@@ -67,7 +69,7 @@ module Blog
       if raw =~ /^(---\s*\n.*?\n?)^(---.*)/m then
         begin
           @data = YAML.load($1)
-          @content = Maruku.new($2)
+          @content = $2
         rescue Exception => e
           raise "Parse Exception: #{e.message}"
         end
@@ -82,6 +84,15 @@ module Blog
         @month = $2
         @day = $3
         @id = $4
+      end
+    end
+
+    # Highlight the codes with pygment
+    def highlight_codes
+      @content.gsub!(/%(.*?){(.*?)}%/m) do
+        lang = :text
+        lang = $1 if $1 != ""
+        Albino.colorize($2, lang)
       end
     end
   end
