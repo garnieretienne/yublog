@@ -42,5 +42,22 @@ module Blog
       change[:email] = author.email
       return change
     end
+
+    # Clone the given repository in a path,
+    # Require git system command
+    #   url = "http://github.com/garnieretienne/blog-content.git"
+    #   path = "posts"
+    #   Blog::Repo.clone(url, path)
+    #   repo = Blog::Repo.new(path)
+    def self.clone(url, path)
+      raise "Git: the path (#{path} selected as the destination already exist)" if Dir.exist?(path)
+      result = system "git clone #{url} #{path} > /dev/null 2> /dev/null"
+      raise "'git clone #{url} #{path}' failed (is git installed ?)" if !result
+    end
   end
 end
+
+url = "http://github.com/garnieretienne/yuback.git"
+path = "test"
+Blog::Repo.clone(url, path)
+repo = Blog::Repo.new(path)
