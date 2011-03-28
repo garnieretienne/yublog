@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'models/post'
 
 module Blog
   class Application < Sinatra::Application
