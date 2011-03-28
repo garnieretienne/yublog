@@ -1,4 +1,7 @@
 # Blog engine config file
 name: kurt's blog
 description: build on his new git based blog engine :)
-base: 
+base:
+repositories:
+  - git@github.com:garnieretienne/install_puppet.git
+  - git@github.com:garnieretienne/yuback.git
