@@ -4,11 +4,11 @@ require 'yaml'
 module Blog
   class Post
 
-    attr_reader :title, :timestamp
+    attr_reader :id, :title, :timestamp, :year, :month, :day
 
     # Create a post object with a source file
     # (YAML header + markdown)
-    #   source = "posts/03-27-2011-new_blog_open.md"
+    #   source = "posts/2011-01-01-new_blog_open.md"
     #   post = Blog::Post.new(source)
     #   title = post.title
     #   date = Time.at(post.timestamp)
@@ -19,6 +19,7 @@ module Blog
       # parse the source and get the metadata and content
       parse_source(raw)
       raise "The Post source file does not contain any metadata (YAML header)" if @data == nil
+      parse_filename(source)
       @title = @data['title']
       @timestamp = @data['timestamp'].to_i
     end
@@ -73,6 +74,16 @@ module Blog
       end
     end
 
+    # Parse the filename to get the post published 
+    # date and the url id
+    def parse_filename(source)
+      if source =~ /^.*(\d{4})-(\d{2})-(\d{2})-(.*)\.md$/ then
+        @year = $1
+        @month = $2
+        @day = $3
+        @id = $4
+      end
+    end
   end
 end
 

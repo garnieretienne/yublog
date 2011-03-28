@@ -1,4 +1,5 @@
 - @posts.each do |post|
-  %h1= post.title
+  %h1<
+    %a{:href => "#{post.year}/#{post.month}/#{post.day}/#{post.id}"}= post.title
   .comment<
     = "published #{Time.at(post.timestamp).strftime("on %m-%d-%Y at %H:%M")}"
