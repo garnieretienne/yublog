@@ -56,8 +56,3 @@ module Blog
     end
   end
 end
-
-url = "http://github.com/garnieretienne/yuback.git"
-path = "test"
-Blog::Repo.clone(url, path)
-repo = Blog::Repo.new(path)
