@@ -38,3 +38,12 @@ h2 {
   font-style: italic;
   text-indent: 10px;
 }
+
+hr {
+  border: 0px;
+}
+
+#article {
+  margin-top: 20px;
+  border-top: 1px solid #4D7D30;
+}
