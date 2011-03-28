@@ -1,12 +1,14 @@
 require 'sinatra'
 require 'models/post'
+require 'haml'
 
 module Blog
   class Application < Sinatra::Application
 
     # root
     get '/' do
-      "Hello World"
+      @posts = Post.all('posts')
+      haml :index
     end
 
   end
