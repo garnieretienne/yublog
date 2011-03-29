@@ -25,8 +25,16 @@ h2 {
   margin-bottom: 10px;
 }
 
+#link {
+  text-decoration: none;
+}
+
 h1 a {
   color: #ADADAD;
+}
+
+a {
+  color: #AD7C74;
 }
 
 #header {
@@ -58,7 +66,7 @@ h1 a {
 }
 
 hr {
-  border: 0px;
+  display: none;
 }
 
 #article {
@@ -76,3 +84,12 @@ hr {
   overflow: auto;
 }
 
+#post_header {
+  height: 80px;
+}
+
+#post_header img {
+  float: left;
+  border: 2px solid #ADADAD;
+  margin-right: 20px;
+}

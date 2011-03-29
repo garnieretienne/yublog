@@ -5,7 +5,8 @@
     %link{'href' => '/css/design.css', 'rel' => 'stylesheet'}
     %link{'href' => '/css/monokai.css', 'rel' => 'stylesheet'}
   %body
-    #header
-      %h1= settings.name
-      %h2= settings.description
+    %a{:href => '/', :id => 'link'}
+      #header
+        %h1= settings.name
+        %h2= settings.description
     = yield

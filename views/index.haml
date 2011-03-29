@@ -2,4 +2,7 @@
   %h1.title<
     %a{:href => "#{post.year}/#{post.month}/#{post.day}/#{post.id}"}= post.title
   .comment<
-    = "published #{Time.at(post.timestamp).strftime("on %m-%d-%Y at %H:%M")}"
+    - if post.last_modified then
+      = "last modified #{post.last_modified.strftime("on %m-%d-%Y at %H:%M")} by #{post.last_author_name}"
+    - else
+      = "published #{post.published.strftime("on %m-%d-%Y at %H:%M")} by #{post.author_name}"

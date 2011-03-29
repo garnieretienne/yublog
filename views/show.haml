@@ -1,0 +1,14 @@
+#post_header
+  - if @avatar then
+    %img{ :alt => 'Avatar', :src => @avatar}
+  %h1.title= @post.title
+  - if @post.last_modified then
+    .comment<
+      = "last modified #{@post.last_modified.strftime("on %m-%d-%Y at %H:%M")} by #{@post.last_author_name}"
+    .comment<
+      = "published #{@post.published.strftime("on %m-%d-%Y at %H:%M")} by #{@post.author_name}"
+  - else 
+    .comment<
+      = "published #{@post.published.strftime("on %m-%d-%Y at %H:%M")} by #{@post.author_name}"
+#article
+  ~ @post
