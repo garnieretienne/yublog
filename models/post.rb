@@ -99,10 +99,7 @@ module Blog
     def parse_source(raw)
       if raw =~ /^(.*title:\s.*?)\n\n(.*)/m then
         begin
-          puts "OK"
-          puts ">#{$1}<"
           @data = YAML.load($1)
-          puts $2
           @content = $2
         rescue Exception => e
           raise "Parse Exception: #{e.message}"
