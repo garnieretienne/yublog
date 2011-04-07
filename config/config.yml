@@ -5,3 +5,4 @@ repo:
   name: test_prod
   path: /
   url: git@github.com:garnieretienne/test_blog.git
+  key: rubyroxx

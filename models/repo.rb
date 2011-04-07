@@ -80,5 +80,15 @@ module Blog
       result = system "git clone #{url} #{path} > /dev/null 2> /dev/null"
       raise "'git clone #{url} #{path}' failed (is git installed ?)" if !result
     end
+
+    # Pull the given repository (origin/master)
+    # Require git repo and git system command
+    #   Blog::Repo.clone(url, path)
+    #   Blog::Repo.pull(path)
+    def self.pull(path)
+      raise "Git: the path (#{path}) doesn't exist" if !Dir.exist?(path)
+      result = system "cd #{path} && git pull origin master > /dev/null 2> /dev/null"
+      raise "git clone failed (is git installed ?)" if !result
+    end
   end
 end

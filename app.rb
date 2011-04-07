@@ -35,6 +35,14 @@ module Blog
       end
     end
 
+    # web hook collector
+    # github ready (http://help.github.com/post-receive-hooks/)
+    post '/hook/:key' do
+      if params[:key] == settings.repo['key'].to_s then
+        Blog::Repo.pull(settings.repo['name'])
+      end
+    end
+
     # root, posts index
     get '/' do
       @title = 'Welcome'
