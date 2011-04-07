@@ -12,7 +12,10 @@ module Blog
       set :configs     => 'config'
       set :name        => 'Blog'
       set :description => 'Blog engine'
-      set :repo        => {'name' => 'posts'}
+      set :repo        => {
+        'name' => '.',      # repo path
+        'path' => '/posts'  # relative path to posts, root is the repo
+      }
 
       # Read config file
       if File.exist?(settings.configs + "/config.yml")
@@ -30,7 +33,7 @@ module Blog
     # root, posts index
     get '/' do
       @title = 'Welcome'
-      @posts = Post.all(settings.repo['name']+settings.repo['path'])
+      @posts = Post.all(settings.repo['name'], settings.repo['path'])
       haml :index
     end
 
@@ -39,7 +42,7 @@ module Blog
       # post filename
       filename = "#{params[:year]}-#{params[:month]}-#{params[:day]}-#{params[:title]}.md"
       # git repo
-      repo = Blog::Repo.new(settings.repo['name']+settings.repo['path'])
+      repo = Blog::Repo.new(settings.repo['name'])
       # build a hash with infos extracted from git
       infos = Hash.new
       git_infos = repo.published_infos(filename)

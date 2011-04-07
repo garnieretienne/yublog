@@ -59,9 +59,9 @@ module Blog
 
     # Return an Array of all posts in the 'base' repository
     #   posts = Blog::Post.all('./posts')
-    def self.all(base='.')
+    def self.all(base='.', path="/")
       repo = Blog::Repo.new(base)
-      posts_sources = Dir.glob(base + '/*.md').sort{|x,y| y <=> x}
+      posts_sources = Dir.glob(base + path + '/*.md').sort{|x,y| y <=> x}
       posts = Array.new
       posts_sources.each do |source|
         infos = Hash.new

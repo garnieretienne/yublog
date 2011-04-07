@@ -5,8 +5,8 @@ module Blog
     # Declare a new local git repository
     #   path = '../posts'
     #   repo = Blog::Repo.new(path)
-    def initialize(path)
-      @repo = Grit::Repo.new(path)
+    def initialize(base='.', path='/')
+      @repo = Grit::Repo.new(base)
     end
 
     # Get the change history on a file
