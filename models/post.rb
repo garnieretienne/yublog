@@ -85,7 +85,7 @@ module Blog
     # Test if the given source is a good formated post source
     def self.smells_good?(file)
       raw = File.read(file)
-      if raw =~ /^---\n.*title:\s.*\n---/m then
+      if raw =~ /^.*title:\s.*?\n\n.*/m then
         return true
       else
         return false
@@ -97,9 +97,12 @@ module Blog
     # Parse a YAML+Markdown source code and 
     # provide metadata and post content
     def parse_source(raw)
-      if raw =~ /^(---\s*\n.*?\n?)^(---.*)/m then
+      if raw =~ /^(.*title:\s.*?)\n\n(.*)/m then
         begin
+          puts "OK"
+          puts ">#{$1}<"
           @data = YAML.load($1)
+          puts $2
           @content = $2
         rescue Exception => e
           raise "Parse Exception: #{e.message}"
