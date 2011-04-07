@@ -1,7 +1,7 @@
 # Blog engine config file
 name: kurt's blog
 description: build on his new git based blog engine :)
-#repo:  
-#  name: posts
-#  path: /
-#  url:
+repo:  
+  name: test_prod
+  path: /
+  url: git@github.com:garnieretienne/test_blog.git

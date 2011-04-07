@@ -2,4 +2,5 @@
 .bundle
 Gemfile.lock
 posts/*
+test_prod/
 !posts/.gitme

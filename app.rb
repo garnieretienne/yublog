@@ -28,6 +28,11 @@ module Blog
       end
       settings.repo['path'] = '' if settings.repo['path']==nil
       settings.repo['url'] = '' if settings.repo['url']==nil
+
+      # Clone the repository if needed
+      if settings.repo['url'] and !Dir.exist?(settings.repo['name']) then
+        Blog::Repo.clone(settings.repo['url'], settings.repo['name'])
+      end
     end
 
     # root, posts index
@@ -64,7 +69,6 @@ module Blog
       if @post.last_modified && @post.last_author_email then
         @avatar = "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(@post.last_author_email)}"
       elsif !@post.last_modified && @post.author_email
-        puts "OK"
         @avatar = "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(@post.author_email)}"
       end
       @title = @post.title
