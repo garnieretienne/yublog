@@ -1,0 +1,32 @@
+# kurt's blog vhost
+# kurt.yuweb.fr
+
+upstream yublog {
+  server unix:/tmp/yublog.0.sock;
+}
+
+server {
+  listen 80;
+  root /var/apps/yublog/current/public;
+  error_page 502 http://yuweb.fr/maintenance.html;
+  location / {
+    proxy_set_header  X-Real-IP  $remote_addr;
+    proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_redirect off;
+
+    if (-f $request_filename/index.html) {
+		  rewrite (.*) $1/index.html break;
+	  }
+
+    if (-f $request_filename.html) {
+      rewrite (.*) $1.html break;
+	  }
+
+    if (!-f $request_filename) {
+		  proxy_pass http://yublog;
+		  break;
+	  }
+  }
+}
+

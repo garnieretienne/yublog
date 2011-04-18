@@ -1,7 +1,7 @@
 .rvmrc
 .bundle
-Capfile
-config/deploy.rb
+#Capfile
+#config/deploy.rb
 Gemfile.lock
 posts/*
 test_prod/
