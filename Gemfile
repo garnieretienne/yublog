@@ -1,8 +1,8 @@
 source "http://rubygems.org"
 
 gem 'sinatra'
-#gem 'maruku'
 gem 'rdiscount'
 gem 'haml'
+gem 'posix-spawn'
 gem 'albino'
 gem 'grit'
