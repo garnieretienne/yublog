@@ -2,7 +2,7 @@
 name: kurt's blog
 description: build on his new git based blog engine :)
 repo:  
-  name: test_prod
+  name: posts
   path: /
-  url: git@github.com:garnieretienne/test_blog.git
-  key: rubyroxx
+  url: yourgithuburl
+  key: yoursecretkey
