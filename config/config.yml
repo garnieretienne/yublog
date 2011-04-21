@@ -1,8 +1,8 @@
 # Blog engine config file
-name: kurt's blog
-description: build on his new git based blog engine :)
-repo:  
-  name: posts
-  path: /
-  #url: yourgithuburl
+#name: Your blog name
+#description: describe here
+#repo:  
+  # name: posts
+  #path: /
+  #url: yourgiturl
   #key: yoursecretkey

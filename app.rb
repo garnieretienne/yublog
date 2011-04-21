@@ -10,8 +10,8 @@ module Blog
     configure do
       # Defaults values
       set :configs     => 'config'
-      set :name        => 'Blog'
-      set :description => 'Blog engine'
+      set :name        => 'Yublog'
+      set :description => 'Git blog engine'
       set :repo        => {
         'name' => '.',      # repo path
         'path' => '/posts'  # relative path to posts, root is the repo
