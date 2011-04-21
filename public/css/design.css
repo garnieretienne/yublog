@@ -1,6 +1,7 @@
 body {
-  background-color: #08090F;
-  color: #AD7C74;
+  /*background-color: #08090F;*/
+  background-color: #0c0c0c;
+  color: #939393;
   width: 80%;
   min-width: 960px;
   margin: auto;
@@ -11,18 +12,23 @@ body {
 }
 
 h1 {
-  color: #ADADAD;
+  color: #FFFFFF;
   font-size: 1.2em;
   text-transform: uppercase;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 40px;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+
+#article h1 {
+  border-bottom: 1px dotted #939393;
 }
 
 h2 {
-  color: #4D7D30;
+  color: #018c8e;
   font-size: 1.2em;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 30px;
+  margin-bottom: 40px;
 }
 
 #link {
@@ -34,7 +40,15 @@ h1 a {
 }
 
 a {
-  color: #AD7C74;
+  color: #fee55b;
+}
+
+code {
+  background: #171717;
+  padding-right: 5px;
+  padding-left: 5px;
+  margin-left: 4px;
+  border-left: 2px solid #aeaeae;
 }
 
 #header {
@@ -71,17 +85,19 @@ hr {
 
 #article {
   margin-top: 20px;
-  border-top: 1px solid #4D7D30;
+  border-top: 1px solid #018c8e;
 }
 
 .highlight {
-  background-color: #05060A;
-  border: 1px solid #4D7D30;
+  background-color: #171717;
+  border: 1px solid #aeaeae;
   margin: 10px;
   padding: 10px;
   padding-top: 0px;
   padding-bottom: 0px;
   overflow: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 #post_header {
