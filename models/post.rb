@@ -121,7 +121,7 @@ module Blog
     # Highlight the codes with pygment
     def highlight_codes
       #@content.gsub!(/%(.*?){(.*?)}%/m) do # %{ some code }%
-      @content.gsub!(/^```(.*?)\n(.*)\n```/m) do # github like: http://github.github.com/github-flavored-markdown/
+      @content.gsub!(/^```(.*?)\n(.*?)\n```/m) do # github like: http://github.github.com/github-flavored-markdown/
         lang = :text
         lang = $1 if $1 != ""
         Albino.colorize($2, lang)
