@@ -30,7 +30,8 @@ module Blog
       settings.repo['url'] = '' if settings.repo['url']==nil
 
       # Clone the repository if needed
-      if settings.repo['url'] and !Dir.exist?(settings.repo['name']) then
+      if settings.repo['url'] != "" and !Dir.exist?(settings.repo['name']) then
+        puts settings.repo['url']
         Blog::Repo.clone(settings.repo['url'], settings.repo['name'])
       end
     end
@@ -55,19 +56,21 @@ module Blog
       # post filename
       filename = "#{params[:year]}-#{params[:month]}-#{params[:day]}-#{params[:title]}.md"
       # git repo
-      repo = Blog::Repo.new(settings.repo['name'])
+      repo = Blog::Repo.new(settings.repo['name']) if Blog::Repo.is_git?(settings.repo['name'])
       # build a hash with infos extracted from git
       infos = Hash.new
-      git_infos = repo.published_infos(filename)
-      infos[:author_name] = git_infos[:name]
-      infos[:author_email] = git_infos[:email]
-      infos[:published] = git_infos[:date]
-      #  test if the file has been modifed
-      if repo.history(filename).count > 1 then
-        git_infos = repo.last_change(filename)
-        infos[:last_modified] = git_infos[:date]
-        infos[:last_author_name] = git_infos[:name]
-        infos[:last_author_email] = git_infos[:email]
+      if Blog::Repo.is_git?(settings.repo['name']) then
+        git_infos = repo.published_infos(filename)
+        infos[:author_name] = git_infos[:name]
+        infos[:author_email] = git_infos[:email]
+        infos[:published] = git_infos[:date]
+        #  test if the file has been modifed
+        if repo.history(filename).count > 1 then
+          git_infos = repo.last_change(filename)
+          infos[:last_modified] = git_infos[:date]
+          infos[:last_author_name] = git_infos[:name]
+          infos[:last_author_email] = git_infos[:email]
+        end
       end
       @post = Post.new(
         settings.repo['name']+settings.repo['path']+ '/' + filename,

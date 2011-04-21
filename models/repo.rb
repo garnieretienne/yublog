@@ -90,5 +90,12 @@ module Blog
       result = system "cd #{path} && git pull origin master > /dev/null 2> /dev/null"
       raise "git clone failed (is git installed ?)" if !result
     end
+
+    # Test if a folder is a git repository
+    #   Blog::Repo.is_git?(folder)
+    def self.is_git?(folder)
+      return true if Dir.exist?("#{folder}/.git/")
+      return false
+    end
   end
 end

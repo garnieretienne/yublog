@@ -32,6 +32,7 @@ module Blog
     #   * :last_author_email
     def initialize(source, info_hash=Hash.new)
       @infos = info_hash
+      @infos = Hash.new if @infos == nil
       raise "The Post source file does not exist (#{source})" if !File.exist?(source)
       # read the source
       raw = File.read(source)
@@ -60,22 +61,24 @@ module Blog
     # Return an Array of all posts in the 'base' repository
     #   posts = Blog::Post.all('./posts')
     def self.all(base='.', path="/")
-      repo = Blog::Repo.new(base)
+      repo = Blog::Repo.new(base) if Blog::Repo.is_git?(base)
       posts_sources = Dir.glob(base + path + '/*.md').sort{|x,y| y <=> x}
       posts = Array.new
       posts_sources.each do |source|
-        infos = Hash.new
-        filename = source.split('/').last
-        git_infos = repo.published_infos(filename)
-        infos[:author_name] = git_infos[:name]
-        infos[:author_email] = git_infos[:email]
-        infos[:published] = git_infos[:date]
-        #  test if the file has been modifed
-        if repo.history(filename).count > 1 then
-          git_infos = repo.last_change(filename)
-          infos[:last_modified] = git_infos[:date]
-          infos[:last_author_name] = git_infos[:name]
-          infos[:last_author_email] = git_infos[:email]
+        if Blog::Repo.is_git?(base) then
+          infos = Hash.new
+          filename = source.split('/').last
+          git_infos = repo.published_infos(filename)
+          infos[:author_name] = git_infos[:name]
+          infos[:author_email] = git_infos[:email]
+          infos[:published] = git_infos[:date]
+          #  test if the file has been modifed
+          if repo.history(filename).count > 1 then
+            git_infos = repo.last_change(filename)
+            infos[:last_modified] = git_infos[:date]
+            infos[:last_author_name] = git_infos[:name]
+            infos[:last_author_email] = git_infos[:email]
+          end
         end
         posts << Blog::Post.new(source, infos) if Blog::Post.smells_good?(source)
       end

@@ -1,6 +1,6 @@
 .rvmrc
 .bundle
 Gemfile.lock
-posts/*
+posts/
 test_prod/
 !posts/.gitme

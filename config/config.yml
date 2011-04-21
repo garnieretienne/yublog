@@ -4,5 +4,5 @@ description: build on his new git based blog engine :)
 repo:  
   name: posts
   path: /
-  url: yourgithuburl
-  key: yoursecretkey
+  #url: yourgithuburl
+  #key: yoursecretkey
