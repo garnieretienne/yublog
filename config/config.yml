@@ -1,8 +1,16 @@
 # Blog engine config file
+
+# General
 #name: Your blog name
-#description: describe here
-#repo:  
-  # name: posts
+#description: describe your blog here
+
+# Post repo
+#repo:
+  #name: posts
   #path: /
   #url: yourgiturl
   #key: yoursecretkey
+
+# Comments with disqus
+#disqus:
+#  shortname: yourshortname

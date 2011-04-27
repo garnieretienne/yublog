@@ -12,3 +12,8 @@
       = "published #{@post.published.strftime("on %m-%d-%Y at %H:%M")} by #{@post.author_name}"
 #article
   ~ @post
+
+- if @disqus then
+  #comments
+    %h1 Comments
+    = @disqus

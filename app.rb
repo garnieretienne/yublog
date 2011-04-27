@@ -12,6 +12,7 @@ module Blog
       set :configs     => 'config'
       set :name        => 'Yublog'
       set :description => 'Git blog engine'
+      set :disqus      => Hash.new
       set :repo        => {
         'name' => '.',      # repo path
         'path' => '/posts'  # relative path to posts, root is the repo
@@ -81,6 +82,23 @@ module Blog
         @avatar = "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(@post.last_author_email)}"
       elsif !@post.last_modified && @post.author_email
         @avatar = "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(@post.author_email)}"
+      end
+      # Show comments if disqus is enabled
+      if settings.disqus['shortname']!=nil then
+        @disqus = %{<script type="text/javascript">
+    var disqus_shortname = '#{settings.disqus['shortname']}';
+    var disqus_identifier = '#{filename}';
+
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+}
       end
       @title = @post.title
       haml :show
