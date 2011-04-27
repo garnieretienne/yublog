@@ -6,11 +6,12 @@
 
 # Post repo
 #repo:
-  #name: posts
-  #path: /
-  #url: yourgiturl
-  #key: yoursecretkey
+#  name: posts
+#  path: /
+#  url: yourgiturl
+#  key: yoursecretkey
 
 # Comments with disqus
 #disqus:
-#  shortname: yourshortname
+#  shortname: disqus_shotname
+#  debug: true # enable that in testing environment

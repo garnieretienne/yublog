@@ -109,3 +109,8 @@ hr {
   border: 2px solid #ADADAD;
   margin-right: 20px;
 }
+
+#comments {
+  padding-top: 20px;
+  border-top: 1px solid #018c8e;
+}
