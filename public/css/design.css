@@ -108,16 +108,17 @@ hr {
 #history {
   border-top: 1px solid #018c8e;
   margin-top: 0px;
-  padding-top: 20px;
-  padding-left: 20px;
+  padding-top: 10px;
   display: none;
 }
 
 #history_button {
   color: #0c0c0c;
   display: block;
+  text-decoration: none;
   width: 100px;
   margin: auto;
+  margin-top: 20px;
   text-align: center;
   background-color: #018c8e;
 }
