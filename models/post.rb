@@ -6,7 +6,6 @@ require 'models/repo'
 module Blog
   class Post
 
-    #attr_reader :id, :title, :timestamp, :year, :month, :day
     attr_reader :id                 # formated post title
     attr_reader :title              # post title
     attr_reader :published          # post publication date

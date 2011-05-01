@@ -10,6 +10,10 @@
   - else 
     .comment<
       = "published #{@post.published.strftime("on %m-%d-%Y at %H:%M")} by #{@post.author_name}"
+  #history_button History
+  %p#history
+    - @history.each do |entry|
+      %span.comment= entry
 #article
   ~ @post
 

@@ -2,11 +2,14 @@
   %head
     %meta{'charset' => 'UTF-8'}
     %title= "#{settings.name}: #{@title}"
-    %link{'href' => '/css/design.css', 'rel' => 'stylesheet'}
-    %link{'href' => '/css/monokai.css', 'rel' => 'stylesheet'}
+    %link{:rel => 'stylesheet', :href => '/css/design.css'}
+    %link{:rel => 'stylesheet', :href => '/css/monokai.css'}
   %body
     %a{:href => '/', :id => 'link'}
       #header
         %h1= settings.name
         %h2= settings.description
     = yield
+  - @javascripts.each do |js|
+    = "<script src='/js/#{js}.js' type='text/javascript'></script>"
+
