@@ -8,10 +8,10 @@
 #repo:
 #  name: posts
 #  path: /
-#  url: yourgiturl
+#  url: your git address
 #  key: yoursecretkey
 
 # Comments with disqus
 #disqus:
-#  shortname: disqus_shotname
+#  shortname: yourshortname
 #  debug: true # enable that in testing environment

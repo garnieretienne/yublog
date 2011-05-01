@@ -20,12 +20,12 @@ module Blog
         date = commit.date
         author = Grit::Actor.from_string(commit.author_string)
         if commit.sha == commits.last.sha then
-          history << "created by #{author.name} on #{date}"
+          history << "created #{date.strftime("on %m-%d-%Y at %H:%M")} by #{author.name} (#{commit.message})"
         else
-          history << "modified by #{author.name} on #{date}"
+          history << "updated #{date.strftime("on %m-%d-%Y at %H:%M")} by #{author.name} (#{commit.message})"
         end
       end
-      return history
+      return history.reverse
     end
 
     # Get the informations about last change on the file
