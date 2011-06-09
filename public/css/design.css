@@ -50,6 +50,10 @@ code {
   border-left: 2px solid #aeaeae;
 }
 
+blockquote {
+  font-style: italic;
+}
+
 #header {
   margin-bottom: 50px;
   line-height: 25px;
