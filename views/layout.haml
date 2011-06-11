@@ -9,6 +9,9 @@
       #header
         %h1= settings.name
         %h2= settings.description
+      #menu
+        %a.menuentry{'href' => 'http://yuweb.fr', 'title' => 'Website Yuweb'} Yuweb
+        %a.menuentry{'href' => 'http://kurt.yuweb.fr/2011/06/10/projects', 'title' => 'My Projects'} Projects
     = yield
   - @javascripts.each do |js|
     = "<script src='/js/#{js}.js' type='text/javascript'></script>"
