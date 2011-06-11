@@ -8,7 +8,7 @@ set :application, "yublog"
 set :ruby, "ruby-1.9.2"
 set :scm, :git
 set :repository,  "https://github.com/garnieretienne/yublog.git"
-set :branch, 'develop'
+set :branch, 'kurt.yuweb.fr'
 set :deploy_via, :remote_cache
 default_run_options[:pty] = true # sometimes needed for some distros
 
