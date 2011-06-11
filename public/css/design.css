@@ -70,6 +70,26 @@ blockquote {
   padding: 0px;
 }
 
+#menu {
+  float: right;
+}
+
+.menuentry {
+  display: block;
+  float: left;
+  margin-left: 20px;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+.menuentry:hover {
+  border-bottom: 2px solid #018c8e;
+}
+.menuentry {
+  text-decoration: none;
+  color: white;
+}
+
 .title {
   line-height: 25px;
   margin-bottom: 10px;
