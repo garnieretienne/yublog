@@ -104,7 +104,6 @@ module Blog
       if settings.disqus['shortname']!=nil then
         @disqus = %{<div id="disqus_thread"></div>
 <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = '#{settings.disqus['shortname']}';
     var disqus_identifier = '#{filename}';
     var disqus_developer = '#{if settings.disqus['debug'] then '1'; else '0'; end}';
