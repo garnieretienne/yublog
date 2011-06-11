@@ -7,18 +7,18 @@ require "rvm/capistrano"
 set :application, "yublog"
 set :ruby, "ruby-1.9.2"
 set :scm, :git
-set :repository,  "https://github.com/garnieretienne/yublog.git"
-set :branch, 'kurt.yuweb.fr'
+set :repository,  "https://github.com/garnieretienne/yublog.git" # clone it
+set :branch, 'develop' # change it
 set :deploy_via, :remote_cache
 default_run_options[:pty] = true # sometimes needed for some distros
 
 # Roles
-server "95.142.169.122", :app, :web
+server "Your Web Server", :app, :web # change it
 set :deploy_to, "/var/apps/#{application}"
-set :www_user, "www-data"
-set :www_group, "www-data"
+set :www_user, "www-data" # adapt it
+set :www_group, "www-data" # adapt it
 
-set :user, 'kurt'
+set :user, 'Your User' # change it
 set :use_sudo, true
 
 # RVM and Bundler options
