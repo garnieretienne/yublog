@@ -5,10 +5,10 @@
     %link{:rel => 'stylesheet', :href => '/css/design.css'}
     %link{:rel => 'stylesheet', :href => '/css/monokai.css'}
   %body
+    #menu
+      %a.menuentry{'href' => 'http://yuweb.fr', 'title' => 'Website Yuweb'} Yuweb
+      %a.menuentry{'href' => 'http://kurt.yuweb.fr/2011/06/10/projects', 'title' => 'My Projects'} Projects
     %a{:href => '/', :id => 'link'}
-      #menu
-        %a.menuentry{'href' => 'http://yuweb.fr', 'title' => 'Website Yuweb'} Yuweb
-        %a.menuentry{'href' => 'http://kurt.yuweb.fr/2011/06/10/projects', 'title' => 'My Projects'} Projects
       #header
         %h1= settings.name
         %h2= settings.description
