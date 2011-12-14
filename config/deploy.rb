@@ -2,7 +2,7 @@
 # ------------
 
 # Variables
-app_name   = 'yublog'
+app_name   = 'kurtblog'
 app_server = 'leia.blcdn.net'
 user       = 'kurt'
 git_url    = 'git@github.com:garnieretienne/yublog.git'
@@ -96,7 +96,6 @@ namespace :shared do
   end
   # link shared tasks with deploy:update_code
   after "deploy:symlink" do
-    "init:setup" # give write right on new folder
     link_posts
     config
   end
