@@ -2,7 +2,7 @@ body {
   background-color: #0c0c0c;
   color: #939393;
   width: 80%;
-  min-width: 960px;
+  max-width: 980px;
   margin: auto;
   margin-top: 50px;
   margin-bottom: 50px;
