@@ -1,15 +1,15 @@
 # Blog engine config file
 
 # General
-#name: Your blog name
-#description: describe your blog here
+name: Yublog
+description: kurt's blog
 
 # Post repo
-#repo:
-#  name: posts
-#  path: /
-#  url: your git address
-#  key: yoursecretkey
+repo:
+  name: posts
+  path: /
+  url: git@github.com:garnieretienne/kurt.yuweb.fr.git
+  key: z8Diy5w1fn42iW
 
 # Comments with disqus
 #disqus:
