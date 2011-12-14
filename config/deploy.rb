@@ -1,3 +1,5 @@
+require "bundler/capistrano"
+
 # Yuweb config
 # ------------
 
@@ -9,7 +11,6 @@ git_url    = 'git@github.com:garnieretienne/yublog.git'
 git_branch = 'kurt.yuweb.fr'
 
 # Bundler
-require "bundler/capistrano"
 set :bundle_without,  [:development, :test]
 set :bundle_flags,    "--deployment --quiet --binstubs"
 
@@ -99,5 +100,5 @@ namespace :shared do
     link_posts
     config
   end
-  before "deploy:symlink", "init:setup", "shared:save_posts" # give write right on new folder
+  before "deploy:symlink", "shared:save_posts" # give write right on new folder
 end
