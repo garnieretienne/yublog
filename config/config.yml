@@ -8,7 +8,7 @@ description: kurt's blog
 repo:
   name: posts
   path: /
-  url: git@github.com:garnieretienne/kurt.yuweb.fr.git
+  url: git://github.com/garnieretienne/kurt.yuweb.fr.git
   key: z8Diy5w1fn42iW
 
 # Comments with disqus

@@ -90,15 +90,9 @@ namespace :shared do
   task :save_posts do
     run("if [[ -d #{deploy_to}/current/posts && ! -d #{deploy_to}/shared/posts ]]; then mv #{deploy_to}/current/posts #{deploy_to}/shared/; fi")
   end
-  desc "Keep the config file"
-  task :config do
-    run("if [[ ! -f #{deploy_to}/shared/config.yml ]]; then cp #{deploy_to}/current/config/config.yml #{deploy_to}/shared/; fi")
-    run("ln -nfs #{deploy_to}/shared/config.yml #{deploy_to}/current/config/")
-  end
   # link shared tasks with deploy:update_code
   after "deploy:symlink" do
     link_posts
-    config
   end
   before "deploy:symlink", "shared:save_posts" # give write right on new folder
 end
